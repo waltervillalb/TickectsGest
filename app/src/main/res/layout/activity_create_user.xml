@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateUserActivity"
+    android:background="@drawable/background_login">
+
+
+
+    <TextView
+        android:id="@+id/tv_textView"
+        style="@style/TituloCreateUser"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/carme"
+        android:text="@string/createUser_titulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <TextView
+        android:id="@+id/tv_text_createUser"
+        style="@style/subtitulo_createUser"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/carme"
+        android:text="@string/text_subtitle_createUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_textView"></TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titulo_nameCreateUser"
+        android:layout_width="350dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/name_createUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_createUser">
+
+        <EditText
+            android:id="@+id/text_Names_CreateUser"
+            android:layout_width="350dp"
+            android:layout_height="54dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titulo_apellidoCreateUser"
+        style="@style/text_input_name"
+        android:layout_width="350dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/apel_createUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_nameCreateUser">
+
+        <EditText
+            android:id="@+id/text_ApellidoCreateUser"
+            android:layout_width="350dp"
+            android:layout_height="54dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titulo_fechaNac"
+        style="@style/text_input_name"
+        android:layout_width="167dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:hint="@string/FechaNac_createUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_apellidoCreateUser">
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="167dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:focusable="false" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titulo_correo"
+        style="@style/text_input_name"
+        android:layout_width="350dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="15dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_fechaNac">
+
+        <EditText
+            android:id="@+id/text_correoEmail"
+            android:layout_width="350dp"
+            android:layout_height="54dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/correo_email_createUser"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/titulo_passw1"
+        style="@style/text_input_name"
+        android:layout_width="350dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/contra2_email_createUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_correo">
+
+        <EditText
+            android:id="@+id/editTextTextPassword1"
+            android:layout_width="350dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_createUser"
+        style="@style/botones"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_text_createU"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_passw1">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+    <Button
+        android:id="@+id/botn_google"
+        android:layout_width="350dp"
+        android:layout_height="54dp"
+        style="@style/btn_google"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/btn_text_createU"
+        app:layout_constraintBottom_toTopOf="@+id/btn_createUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_passw1"></Button>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="muestraCalendario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintStart_toEndOf="@+id/titulo_fechaNac"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <DatePicker
+        android:id="@+id/dpFecha"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btn_createUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </DatePicker>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
