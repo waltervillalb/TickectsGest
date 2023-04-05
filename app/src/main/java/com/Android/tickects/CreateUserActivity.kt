@@ -1,100 +1,96 @@
 package com.Android.tickects
 
+import android.app.DatePickerDialog
 import android.os.Bundle
-import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 class CreateUserActivity : AppCompatActivity() {
-    private lateinit var firebasAuth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
+    lateinit var datePickerDialog: DatePickerDialog
 
-    var txtFecha: EditText?= null
-    var btnfecha: ImageButton?= null
-    var editfecha: DatePicker?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_user)
+        auth = FirebaseAuth.getInstance()
 
-        firebasAuth=Firebase.auth
 
-        //varables para la creación de datos
-        val txtNomNew: TextView = findViewById(R.id.text_Names_CreateUser)
-        val txtApeNew: TextView = findViewById(R.id.text_ApellidoCreateUser)
-        val txtEmaiNew: TextView = findViewById(R.id.text_correoEmail)
-        val txtpassnew: TextView= findViewById(R.id.editTextTextPassword1)
-        val btnCreateNewUs: Button= findViewById(R.id.btn_createUser)
-        //val dateNaci:DatePicker = findViewById(R.id.editTextDate)
+        val FechaRegistro = findViewById<EditText>(R.id.text_fechCreateUser)
+        FechaRegistro.setOnClickListener {
+            val c: Calendar = Calendar.getInstance()
+            val mYear: Int = c.get(Calendar.YEAR)
 
-        btnCreateNewUs.setOnClickListener (){
-            createAccount(txtEmaiNew.text.toString(), txtpassnew.text.toString())
+            val mMonth: Int = c.get(Calendar.MONTH)
+
+            val mDay: Int = c.get(Calendar.DAY_OF_MONTH)
+            datePickerDialog = DatePickerDialog(
+                this,
+                { view, year, monthOfYear, dayOfMonth ->
+                    FechaRegistro.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
+                }, mYear, mMonth, mDay
+            )
+            datePickerDialog.show()
         }
 
+        val btnEnviarRegistro = findViewById<Button>(R.id.btn_createUser)
+        btnEnviarRegistro.setOnClickListener {
+            val nombre = findViewById<EditText>(R.id.text_NamesCreateUser).text.toString()
+            val apellido = findViewById<EditText>(R.id.text_ApellidoCreateUser).text.toString()
+            val telefono =
+                findViewById<EditText>(R.id.text_NumeroCeluluarCreateUser).text.toString()
+            val genero = findViewById<EditText>(R.id.text_GeneroCreateUser).text.toString()
+            val fechanac = FechaRegistro.text.toString()
+            val email = findViewById<EditText>(R.id.text_EmailCreateUser).text.toString()
+            val password = findViewById<EditText>(R.id.text_PasswordCreateUser).text.toString()
 
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // El usuario se creó exitosamente en Firebase Authentication
+                        val user = FirebaseAuth.getInstance().currentUser
+                        val uid = user!!.uid
+                        val userData = hashMapOf(
+                            "nombre" to nombre,
+                            "apellido" to apellido,
+                            "telefono" to telefono,
+                            "genero" to genero,
+                            "fechanacimiento" to fechanac,
+                            "correo" to email
+                        )
 
-        //variables para la creacio del calendario
-      txtFecha=findViewById(R.id.editTextDate)
-        btnfecha=findViewById(R.id.imageButton)
-        editfecha=findViewById(R.id.dpFecha)
-
-
-
-
-        //cambiar color
-        val datePicker = findViewById<DatePicker>(R.id.dpFecha)
-        datePicker.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-
-
-
-        //envía el text la fecha
-        txtFecha?.setText(getFecha())
-
-        editfecha?.setOnDateChangedListener{
-            editfecha,anho,mes,dia->
-            txtFecha?.setText(getFecha())
-            editfecha.visibility=View.GONE
-        }
-    }
-
-
-
-
-    //settea la fecha
-    fun getFecha(): String{
-        var dia=editfecha?.dayOfMonth.toString().padStart(2,'0')
-        var mes=(editfecha!!.month+1).toString().padStart(2,'0')
-        var anho= editfecha?.year.toString().padStart(4,'0')
-    return dia+"/"+mes+"/"+anho
-
-
-
-
-    }
-
-
-
-
-
-
-//muestra el calendario
-    fun muestraCalendario(view: View){
-        editfecha?.visibility=View.VISIBLE
-    }
-
-
-
-    private fun createAccount(email: String, password: String){
-            firebasAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this){
-                task ->
-                if (task.isSuccessful){
-                    Toast.makeText(baseContext,"Cuenta Creada correctamente",Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(baseContext,"Algo salió mal "+task.exception, Toast.LENGTH_SHORT).show()
-
+// agregar nuevo documento generando el ID ccorrespondiente
+                        val db = FirebaseFirestore.getInstance()
+                        db.collection("users").document(uid).set(userData)
+                            .addOnSuccessListener {
+                                // Los datos se guardaron exitosamente en Firestore
+                                Toast.makeText(
+                                    this,
+                                    "Usuario registrado exitosamente",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            .addOnFailureListener {
+                                // Ocurrió un error al guardar los datos en Firestore
+                                Toast.makeText(
+                                    this,
+                                    "Error al registrar el usuario",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                    } else {
+                        // Ocurrió un error al crear el usuario en Firebase Authentication
+                        Toast.makeText(this, "Error al crear el usuario", Toast.LENGTH_SHORT).show()
+                    }
                 }
-            }
+        }
     }
-    }
+}
+
+
+

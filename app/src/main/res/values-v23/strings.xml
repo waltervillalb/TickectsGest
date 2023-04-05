@@ -14,4 +14,7 @@
     <string name="text_comienzo">
         De una manera más<font color="#93278F"><b> FÁCIL</b></font>
     </string>
+    <string name="createUser_celular">Numero de Celular</string>
+    <string name="createUser_Direccion">Dirección</string>
+    <string name="Genero">Género</string>
 </resources>

@@ -1,55 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".UserInfoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/g_image"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:scaleType="centerCrop">
-        </ImageView>
         <TextView
-            android:id="@+id/g_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Informacion Personal"
+            android:textSize="20dp" />
 
-        </TextView>
         <TextView
-            android:id="@+id/g_nom"
-            android:layout_width="wrap_content"
+            android:id="@+id/eTxt_NombreUser"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
-        <TextView
-            android:id="@+id/g_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:focusable="false"
+            android:textSize="20dp" />
 
-        </TextView>
+
+        <TextView
+            android:id="@+id/eTxt_ApellidoUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/eTxt_CorreoUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/eTxt_TelefonoUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/eTxt_GeneroUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/eTxtfechaUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/eTxt_PaisUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/eTxt_ProvinciaUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/eTxt_DireccionUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:textSize="20dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
 
         <Button
-            android:id="@+id/g_sign_out"
+            android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SIGN OUT"
-            android:layout_margin="10dp">
-
-        </Button>
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:fontFamily="sans-serif"
+            android:text="Cerrar sesión"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

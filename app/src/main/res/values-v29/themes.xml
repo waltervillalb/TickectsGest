@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.TickectsGest" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.TickectsGest" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="android:forceDarkAllowed">false</item>
         <item name="colorPrimary">@color/logoPrincipal</item>
