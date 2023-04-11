@@ -19,7 +19,7 @@ class ContraRecuperar : AppCompatActivity() {
         btnEnviar = findViewById(R.id.btn_recuContra)
         txtRecuperarEmail = findViewById(R.id.recu_emailText)
         btnEnviar.setOnClickListener {
-            val emailAddres = txtRecuperarEmail.text.toString()
+            val emailAddres = txtRecuperarEmail.text.toString().trim()
 
             Firebase.auth.sendPasswordResetEmail(emailAddres).addOnCompleteListener { task ->
                 if(task.isSuccessful){

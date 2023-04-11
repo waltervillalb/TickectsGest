@@ -2,6 +2,7 @@ package com.Android.tickects
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -19,42 +20,55 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
+        val txtEmail: TextView = findViewById(R.id.text_email)
+        val txtPssw: TextView = findViewById(R.id.text_password)
+        val email = txtEmail.text.toString().trim()
+        val password = txtPssw.text.toString().trim()
+        firebaseAuth = Firebase.auth
+
         //validar Boton de Olvidaste tu contraseña
         val recupBTN = findViewById<TextView>(R.id.tv_recup_password)
         recupBTN.setOnClickListener {
             val lanzar2 = Intent(this, ContraRecuperar::class.java)
             startActivity(lanzar2)
         }
+        //validar Boton de registrarse
+
 
         val btnLogin: Button = findViewById(R.id.btn_login)
-        val txtEmail: TextView = findViewById(R.id.text_email)
-        val txtPssw: TextView = findViewById(R.id.text_password)
-        val email = txtEmail.text.toString()
-        val password = txtPssw.text.toString()
-        firebaseAuth = Firebase.auth
         btnLogin.setOnClickListener {
+            val email = txtEmail.text.toString().trim()
+            val password = txtPssw.text.toString().trim()
+
+            // Validar campos vacíos
+            if (email.isNullOrEmpty()) {
+                txtEmail.error = "Correo electrónico requerido"
+                return@setOnClickListener
+            }
+
+            if (password.isNullOrEmpty()) {
+                txtPssw.error = "Contraseña requerida"
+                return@setOnClickListener
+            }
+
+            // Validar formato de correo electrónico
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                txtEmail.error = "Formato de correo electrónico inválido"
+                return@setOnClickListener
+            }
+
             signIn(txtEmail.text.toString(), txtPssw.text.toString())
         }
 
-        if (email.isNullOrEmpty()) {
-            txtEmail.error = "Correo electrónico requerido"
-        }
-
-
-        if (password.isNullOrEmpty()) {
-            txtPssw.error = "Contraseña requerida"
-            return
-        }
-
     }
+    //traer datos de la autenticacion de firebase
     private fun signIn(email: String, password: String){
-
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener (this){
              task ->
             if(task.isSuccessful) {
                 val user = firebaseAuth.currentUser
                 Toast.makeText(baseContext, "operación exitosa", Toast.LENGTH_SHORT).show()
-
                 //aqui vamos a ir a la pantalla Home
                 val i = Intent(this, HomeActivity::class.java)
                 startActivity(i)
@@ -63,7 +77,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
 }
 
 

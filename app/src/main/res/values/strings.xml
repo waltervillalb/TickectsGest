@@ -34,5 +34,6 @@
     <string name="createUser_celular">Numero de Celular</string>
     <string name="createUser_Direccion">Dirección</string>
     <string name="Genero">Género</string>
+    <string name="btn_validarTelefo">Validar Numero de Celular</string>
 
 </resources>
