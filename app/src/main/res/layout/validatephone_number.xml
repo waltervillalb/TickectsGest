@@ -9,7 +9,7 @@
         android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="122dp"
+        android:layout_marginEnd="82dp"
         android:text="Validar número de teléfono"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_title"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="91dp"
         android:hint="Código de verificación"
         android:inputType="number" />
 
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="545dp"
+        android:layout_marginBottom="460dp"
         android:gravity="center"
         android:text="Validar" />
 

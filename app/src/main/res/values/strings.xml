@@ -29,7 +29,7 @@
     <string name="correo_email_createUser">Correo o email</string>
     <string name="contra1_createUser">Contraseña</string>
     <string name="contra2_email_createUser">Contraseña</string>
-    <string name="btn_text_createU">Crear Usuario
+    <string name="btn_text_createU">Continuar con el registro
     </string>
     <string name="createUser_celular">Numero de Celular</string>
     <string name="createUser_Direccion">Dirección</string>

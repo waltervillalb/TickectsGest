@@ -14,4 +14,9 @@
     <color name="colorBackLogin1">#7a7a7a</color>
     <color name="colorBackLogin2">#969696</color>
     <color name="colorBackLogin3">#7a7a7a</color>
+    <color name="secondary_light">#FFFFFF</color>
+    <color name="secondary_light_60">#99FFFFFF</color>
+    <color name="error">#e84545</color>
+    <color name="error_dark">#d32f2f</color>
+    <color name="primary">#569B51</color>
 </resources>

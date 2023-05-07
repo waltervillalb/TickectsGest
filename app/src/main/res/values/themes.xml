@@ -71,4 +71,23 @@
         <item name="boxStrokeWidth">0dp</item>
         <item name="boxStrokeWidthFocused">0dp</item>
     </style>
+
+    <style name="FormEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/secondary_light</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="singleLine">true</item>
+        <item name="maxLines">1</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textColorHint">@color/secondary_light</item>
+    </style>
+    <style name="FormTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:textColorHint">@color/color1</item>
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="hintTextColor">@color/primary</item>
+    </style>
 </resources>

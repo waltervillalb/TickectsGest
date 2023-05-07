@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,12 +16,15 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
-        FirebaseApp.initializeApp(this)
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        FirebaseApp.initializeApp(this)
 
+        // Obtener la instancia de FirebaseAppCheck
+        val firebaseAppCheck = FirebaseAppCheck.getInstance()
+
+        // Instalar el proveedor de Play Integrity
+        firebaseAppCheck.installAppCheckProviderFactory(PlayIntegrityAppCheckProviderFactory.getInstance())
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         supportActionBar?.hide()
         val iniciosesionBTN = findViewById<Button>(R.id.IniciarSesión)
