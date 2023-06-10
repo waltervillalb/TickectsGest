@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,13 +8,11 @@
     android:background="@drawable/background_login"
     tools:context=".CreateUserActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
         android:padding="25dp">
-
 
         <TextView
             android:id="@+id/tv_textView"
@@ -23,10 +22,7 @@
             android:layout_marginTop="15dp"
             android:textAlignment="center"
             android:fontFamily="@font/carme"
-            android:text="@string/createUser_titulo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></TextView>
+            android:text="@string/createUser_titulo" />
 
         <TextView
             android:id="@+id/tv_text_createUser"
@@ -34,70 +30,60 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/carme"
-            android:text="@string/text_subtitle_createUser"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_textView"></TextView>
+            android:text="@string/text_subtitle_createUser" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titulo_nameCreateUser"
-            android:layout_width="350dp"
-            android:layout_height="44dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="@string/name_createUser"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_text_createUser">
+            android:background="@drawable/background_input">
 
             <EditText
                 android:id="@+id/etNombre"
-                android:layout_width="350dp"
-                android:layout_height="44dp" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titulo_apellidoCreateUser"
             style="@style/text_input_name"
-            android:layout_width="350dp"
-            android:layout_height="44dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             app:boxStrokeColor="@color/color2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo_nameCreateUser">
+            android:background="@drawable/background_input">
 
             <EditText
                 android:id="@+id/etApellido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/primary"
-                android:hint="@string/apel_createUser"/>
+                android:hint="@string/apel_createUser"
+                android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titulo_fechaNac"
             style="@style/text_input_name"
-            android:layout_width="350dp"
-            android:layout_height="44dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:clickable="true"
             android:focusable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo_apellidoCreateUser">
+            android:background="@drawable/background_input">
 
             <EditText
                 android:id="@+id/etFechaNac"
-                android:layout_width="350dp"
-                android:layout_height="44dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="@string/FechaNac_createUser"
                 android:clickable="true"
                 android:focusable="false"
                 android:inputType="date"
                 android:maxLines="1" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -105,9 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo_fechaNac">
+            android:background="@drawable/background_input">
 
             <Spinner
                 android:id="@+id/spGenero"
@@ -116,38 +100,32 @@
                 android:layout_gravity="center_horizontal"
                 android:entries="@array/spTipoGenero"
                 android:textAlignment="center" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titulo_celular"
             style="@style/text_input_name"
-            android:layout_width="350dp"
-            android:layout_height="44dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/createUser_celular"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo_Genero">
+            android:background="@drawable/background_input">
 
             <EditText
                 android:id="@+id/etNumeroCelular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textAlignment="center" />
-
+                android:textAlignment="center"
+                android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titulo_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo_celular">
+            android:background="@drawable/background_input">
 
             <EditText
                 android:id="@+id/etEmail"
@@ -156,18 +134,15 @@
                 android:hint="@string/correo_email_createUser"
                 android:layout_gravity="center_horizontal"
                 android:inputType="textEmailAddress"
-                android:textAlignment="center" />
+                android:textAlignment="center"/>
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titulo_passw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo_correo">
+            android:background="@drawable/background_input">
 
             <EditText
                 android:id="@+id/etPasswordCreateUser"
@@ -193,29 +168,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_text_createU"
-            android:layout_margin="20dp"
+            android:layout_margin="20dp" />
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.737"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo_passw"
-            app:layout_constraintVertical_bias="1.0">
-
-        </androidx.appcompat.widget.AppCompatButton>
-
-
-        <ProgressBar
-            android:id="@+id/pbLoading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:outlineAmbientShadowColor="@color/color3"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </LinearLayout>
 </ScrollView>

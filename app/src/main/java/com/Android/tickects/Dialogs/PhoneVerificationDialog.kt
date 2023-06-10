@@ -24,7 +24,7 @@ class PhoneVerificationDialog(context: Context, telefono: String) : Dialog(conte
         setContentView(dialogView)
 
 // Asignar el listener de clics al botón de validación
-        val btnValidate = dialogView.findViewById<Button>(R.id.btn_validate)
+        val btnValidate = dialogView.findViewById<Button>(R.id.btn_validar)
         btnValidate.setOnClickListener {
         }
     }
